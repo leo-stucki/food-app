@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Patient} from "../shared/model/patient";
+
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
+
+  currentPatient: Patient = {
+    id: 1,
+    firstName: 'Lian',
+    lastName: 'Tschoggo',
+    weight: 100,
+    height: 1.80
+  };
 
 }

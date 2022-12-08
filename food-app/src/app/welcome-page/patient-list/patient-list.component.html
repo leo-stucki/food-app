@@ -1,1 +1,9 @@
-<p>patient-list works!</p>
+<div class="search-bar">
+  <!-- search-bar einfügen -->
+</div>
+<div class="patient-list">
+  <div class="patient-list-element" *ngFor="let patient of patients">
+    <a>{{ patient.firstName }} {{ patient.lastName }}</a>
+  </div>
+</div>
+

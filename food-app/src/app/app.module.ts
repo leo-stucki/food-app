@@ -7,7 +7,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { PatientListComponent } from './welcome-page/patient-list/patient-list.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { StatsListComponent } from './home-page/stats-list/stats-list.component';
+import { StatisticListComponent } from './home-page/statistic-list/statistic-list.component';
 import { PatientViewPageComponent } from './patient-view-page/patient-view-page.component';
 import { PatientViewListComponent } from './patient-view-page/patient-view-list/patient-view-list.component';
 import { FoodViewPageComponent } from './food-view-page/food-view-page.component';
@@ -16,6 +16,10 @@ import { MealPlanPageComponent } from './meal-plan-page/meal-plan-page.component
 import { DishCarouselComponent } from './meal-plan-page/dish-carousel/dish-carousel.component';
 import { MealPlanComponent } from './meal-plan-page/meal-plan/meal-plan.component';
 import { DishListComponent } from './meal-plan-page/dish-carousel/dish-list/dish-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatIconModule} from "@angular/material/icon";
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +28,7 @@ import { DishListComponent } from './meal-plan-page/dish-carousel/dish-list/dish
     WelcomePageComponent,
     PatientListComponent,
     HomePageComponent,
-    StatsListComponent,
+    StatisticListComponent,
     PatientViewPageComponent,
     PatientViewListComponent,
     FoodViewPageComponent,
@@ -36,7 +40,9 @@ import { DishListComponent } from './meal-plan-page/dish-carousel/dish-list/dish
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

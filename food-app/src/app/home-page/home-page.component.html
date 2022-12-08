@@ -1,1 +1,8 @@
-<p>home-page works!</p>
+<div class="current-patient-name">
+  <h1>{{ currentPatient.firstName }} {{ currentPatient.lastName }}</h1>
+  <mat-icon routerLink="" class="choose-different-user">expand-more</mat-icon>
+</div>
+<app-statistic-list></app-statistic-list>
+<div class="add-statistic-button">
+  <mat-icon>add</mat-icon>
+</div>

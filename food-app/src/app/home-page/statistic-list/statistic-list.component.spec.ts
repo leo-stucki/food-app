@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatsListComponent } from './stats-list.component';
+import { StatsListComponent } from './statistic-list.component';
 
 describe('StatsListComponent', () => {
   let component: StatsListComponent;
