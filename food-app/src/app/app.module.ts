@@ -18,6 +18,8 @@ import { MealPlanComponent } from './meal-plan-page/meal-plan/meal-plan.componen
 import { DishListComponent } from './meal-plan-page/dish-carousel/dish-list/dish-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from "@angular/material/icon";
+import {MatTableModule} from "@angular/material/table";
+import {MatListModule} from "@angular/material/list";
 
 
 
@@ -42,7 +44,9 @@ import {MatIconModule} from "@angular/material/icon";
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

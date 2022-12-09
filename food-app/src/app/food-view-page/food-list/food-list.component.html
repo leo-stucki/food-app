@@ -1,1 +1,13 @@
-<p>food-list works!</p>
+<div class="search-bar">
+  <!-- search-bar einfügen -->
+</div>
+<div class="food-list">
+  <div class="food-tile" *ngFor="let food of foods">
+    <h2>{{ food.name }}</h2>
+    <mat-list>
+      <!-- simulation nicht möglich -->
+      <mat-list-item></mat-list-item>
+    </mat-list>
+  </div>
+</div>
+
