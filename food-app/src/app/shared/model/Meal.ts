@@ -1,8 +1,5 @@
-import {Dish} from "./dish";
-
 export class Meal {
   id?: number;
-  name?: number;
-  dish?: Dish;
+  dishId?: number;
   time?: Date;
 }
