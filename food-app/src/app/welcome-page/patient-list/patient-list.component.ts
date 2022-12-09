@@ -15,6 +15,20 @@ export class PatientListComponent {
       lastName: 'Tschoggo',
       weight: 100,
       height: 1.80
-    }
+    },
+    {
+      id: 2,
+      firstName: 'livio',
+      lastName: 'spa',
+      weight: 100,
+      height: 1.80
+    },
+    {
+      id: 3,
+      firstName: 'linus',
+      lastName: 'Acker',
+      weight: 100,
+      height: 1.80
+    },
   ];
 }
