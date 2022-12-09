@@ -1,5 +1,7 @@
 .top-nav{
-  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 ul {
@@ -8,10 +10,20 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
+
 }
 
 .top-nav-element{
-  margin: 0;
-  outline: none;
+  margin: 0 10px 0 10px;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   cursor: pointer;
+}
+
+
+.top-nav-element:hover {
+  background-color: #f6f6f6f6;
 }
