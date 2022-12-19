@@ -4,7 +4,7 @@
   </div>
   <div class="content">
     <app-patient-list (newPatientEvent)="selectPatient($event)"></app-patient-list>
-    <div class="button" routerLink="./home-page">
+    <div class="button" routerLink="./home-page" (click)="submitSelectedPatient()">
       <a>Auswählen</a>
     </div>
   </div>

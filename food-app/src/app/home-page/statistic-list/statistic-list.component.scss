@@ -1,0 +1,18 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.statistic-tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px;
+  height: 200px;
+  border: solid 2px black;
+}
+
+.add-button {
+    background-color: #EB0000;
+}

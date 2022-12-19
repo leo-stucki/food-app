@@ -4,4 +4,5 @@ export class Patient {
   lastName?: string;
   weight?: number;
   height?: number;
+  current?: boolean;
 }

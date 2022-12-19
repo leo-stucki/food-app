@@ -1,3 +1,17 @@
-<div class="statistics">
-  <!-- statistiken einfügen -->
+<div class="content" *ngIf="statistics.length >= 1">
+  <div class="statistic-tile" *ngFor="let statistic of statistics">
+    <h1>{{ statistic.attribute?.name }}</h1>
+  </div>
+</div>
+<div class="content" *ngIf="statistics.length == 0">
+  <div class="statistic-tile">
+    <div class="header">
+      <h2>Statistik hinzufügen:</h2>
+    </div>
+    <div class="add-statistic-button">
+      <button mat-fab class="add-button">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
