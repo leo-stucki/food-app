@@ -35,4 +35,13 @@ export class DishService {
   getAllDishes(): Observable<Dish[]> {
     return of(this.dishes);
   }
+
+  getDishById(dishId: number): Observable<Dish[]> {
+    let result: Dish[] = [];
+    for (let dish of this.dishes) {
+      if (dish.id == dishId) {
+        result.push(dish);
+      }
+    } return of(result);
+  }
 }

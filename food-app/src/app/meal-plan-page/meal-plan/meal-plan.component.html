@@ -1,6 +1,11 @@
-<div class="header">
-  <h1>Kommende Mahlzeiten</h1>
-</div>
-<div class="content">
+<div class="page">
+  <div class="header">
+    <h1>Kommende Mahlzeiten</h1>
+  </div>
+  <div class="content">
+    <div class="meal-tile" *ngFor="let meal of meals">
+      <h2 *ngFor="let dish of getDishById(meal.dishId!)" >{{ dish.name }}</h2>
+    </div>
+  </div>
 
 </div>

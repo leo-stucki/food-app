@@ -1,5 +1,7 @@
+import {Meal} from "./meal";
+import {Patient} from "./patient";
+
 export class MealPerPatient {
-  mealId?: number;
-  patientId?: number;
-  foodAmount?: number;
+  meal?: Meal;
+  patient?: Patient;
 }
