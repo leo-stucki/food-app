@@ -1,8 +1,10 @@
 <div class="search-bar">
-  <!-- search-bar einfügen -->
+  <mat-form-field class="input-field">
+    <input type="text" matInput placeholder="Patient suchen ..." (keyup)="filterResult($event)">
+  </mat-form-field>
 </div>
 <div class="patient-list">
-  <div class="patient-list-element" *ngFor="let patient of patients">
+  <div class="patient-list-element" *ngFor="let patient of dataSource" (click)="selectPatient(patient)" >
     <a>{{ patient.firstName }} {{ patient.lastName }}</a>
   </div>
 </div>

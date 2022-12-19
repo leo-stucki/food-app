@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Patient} from "../shared/model/patient";
 
 @Component({
   selector: 'app-welcome-page',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class WelcomePageComponent {
 
+  SelectedPatient: Patient = new Patient();
+
+  selectPatient(selectedPatient: Patient) {
+    this.SelectedPatient = selectedPatient;
+  }
 }

@@ -1,0 +1,20 @@
+.page {
+  margin: 0 15% 0 15%;
+}
+
+.header {
+  h1 {
+    margin: 5% 0 5% 0;
+  }
+}
+
+.button {
+  display: flex;
+  justify-self: flex-end;
+  margin: 50px;
+  padding: 10px;
+  max-width: 200px;
+  border: solid 2px black;
+  color: white;
+  background-color: #EB0000;
+}

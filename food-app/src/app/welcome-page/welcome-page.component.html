@@ -1,9 +1,11 @@
-<div class="header">
-  <h1>Willkommen zurück, bitte wähle einen Patienten aus:</h1>
-</div>
-<div class="content">
-  <app-patient-list></app-patient-list>
-  <div class="button" routerLink="./home-page">
-    <a>Auswählen</a>
+<div class="page">
+  <div class="header">
+    <h1>Willkommen zurück, bitte wähle einen Patienten aus:</h1>
+  </div>
+  <div class="content">
+    <app-patient-list (newPatientEvent)="selectPatient($event)"></app-patient-list>
+    <div class="button" routerLink="./home-page">
+      <a>Auswählen</a>
+    </div>
   </div>
 </div>
