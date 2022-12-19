@@ -7,7 +7,7 @@ import {Observable, of} from "rxjs";
 })
 export class AttributeService {
 
-  //MOCK-DATA
+  //MOCK-DATA attributes
   attributes: Attribute[] = [
     {
       id: 1,
@@ -33,7 +33,6 @@ export class AttributeService {
 
   //MOCK-ENDPOINTS (deliver mock data)
   getAllAttributes(): Observable<Attribute[]> {
-    //return this.http.get<Patient[]>(URL);
     return of(this.attributes);
   }
 

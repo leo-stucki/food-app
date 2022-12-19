@@ -1,13 +1,28 @@
-<div class="search-bar">
-  <!-- search-bar einfügen -->
+<div class="food-list" *ngIf="dataSource.length >= 0">
+  <div class="search-bar">
+    <mat-form-field class="input-field">
+      <input type="text" matInput placeholder="Lebensmittel suchen ..." (keyup)="filterResult($event)">
+    </mat-form-field>
+  </div>
+  <div class="content">
+    <div class="food-tile" *ngFor="let food of dataSource">
+      <h2>{{ food.name }}</h2>
+      <p>Attributes(per 100g):</p>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let attributePerFood of getAttributesByFoodId(food.id!)"> - {{ attributePerFood.attributeAmount }} {{ attributePerFood.attribute?.unit }} {{ attributePerFood.attribute?.name }}</mat-list-item>
+      </mat-list>
+    </div>
+  </div>
 </div>
-<div class="food-list">
-  <div class="food-tile" *ngFor="let food of foods">
-    <h2>{{ food.name }}</h2>
-    <mat-list>
-      <!-- simulation nicht möglich -->
-      <mat-list-item></mat-list-item>
-    </mat-list>
+
+<div class="food-list" *ngIf="dataSource.length == 0">
+  <div class="food-tile">
+    <h1>Lebensmittel hinzufügen:</h1>
+    <div class="add-food-button">
+      <button mat-fab class="add-button">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
   </div>
 </div>
 

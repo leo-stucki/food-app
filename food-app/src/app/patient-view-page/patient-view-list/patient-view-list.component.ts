@@ -7,17 +7,35 @@ import {PatientService} from "../../shared/services/patient.service";
   templateUrl: './patient-view-list.component.html',
   styleUrls: ['./patient-view-list.component.scss']
 })
-export class PatientViewListComponent implements OnInit{
+export class PatientViewListComponent implements OnInit {
 
   columnsToDisplay = ['number', 'name', 'height', 'weight'];
 
   patients: Patient[] = [];
 
-  constructor(private patientService: PatientService) {}
+  filteredPatients: Patient[] = [];
+
+  dataSource: Patient[] = [];
+
+  constructor(private patientService: PatientService) {
+  }
 
   ngOnInit() {
     this.patientService.getAllPatients().subscribe((res) => {
       this.patients = res;
+      this.dataSource = this.patients;
     })
+  }
+
+  filterResult(event: any) {
+    let search: string = event.target.value;
+    if (search) {
+      this.filteredPatients = this.patients.filter(
+        (patient) => patient.firstName?.toLowerCase().indexOf(search.toLowerCase()) !== -1 || patient.lastName?.toLowerCase().indexOf(search.toLowerCase()) !== -1
+      );
+      this.dataSource = this.filteredPatients;
+    } else {
+      this.dataSource = this.patients;
+    }
   }
 }

@@ -1,0 +1,21 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.food-tile {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 10%;
+  border: solid 2px black;
+}
+
+.add-button {
+  background-color: #EB0000;
+}
+
+.search-bar{
+  display: flex;
+  justify-content: flex-end;
+}

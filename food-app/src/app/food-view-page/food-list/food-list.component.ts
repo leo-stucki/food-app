@@ -1,58 +1,61 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Food} from "../../shared/model/food";
-import {Attribute} from "../../shared/model/attribute";
-import {AttributesPerFood} from "../../shared/model/attributesPerFood";
+import {FoodService} from "../../shared/services/food.service";
+import {AttributePerFoodService} from "../../shared/services/attribute-per-food.service";
+import {AttributeService} from "../../shared/services/attribute.service";
+import {AttributePerFood} from "../../shared/model/attributePerFood";
 
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.scss']
 })
-export class FoodListComponent {
-  foods: Food[] = [
-    {
-      id: 1,
-      name: 'fleisch',
-      unit: 'g'
-    },
-    {
-      id: 2,
-      name: 'spagetti',
-      unit: 'g'
-    }
-  ];
+export class FoodListComponent implements OnInit{
 
-  attributes: Attribute[] =  [
-    {
-      id: 1,
-      name: 'protein',
-      unit: 'mg',
-    },
-    {
-      id: 2,
-      name: 'saltz',
-      unit: 'mg',
-    }
-  ];
+  foods: Food[] = [];
 
-  attributePerFood: AttributesPerFood[] = [
-    {
-      foodId: 1,
-      attributeId: 1,
-      foodAmount: 100,
-      attributeAmount: 5
-    },
-    {
-      foodId: 1,
-      attributeId: 2,
-      foodAmount: 100,
-      attributeAmount: 10,
-    },
-    {
-      foodId: 2,
-      attributeId: 1,
-      foodAmount: 100,
-      attributeAmount: 20
-    },
-  ]
+  filteredFoods: Food[] = [];
+
+  dataSource: Food[] = [];
+
+  constructor(private foodService: FoodService, private attributePerFoodService: AttributePerFoodService) {}
+
+  ngOnInit() {
+    this.foodService.getAllFoods().subscribe((res) => {
+      this.foods = res;
+      this.dataSource = this.foods;
+    })
+  };
+
+  getAttributesByFoodId(foodId: number): AttributePerFood[] {
+    let result: AttributePerFood[] = [];
+    this.attributePerFoodService.getAttributesPerFoodByFoodId(foodId).subscribe((res) => {
+      result = res;
+      console.dir(result)
+      for (let attributePerFood of result) {
+        if (attributePerFood.foodAmount != 100) {
+          attributePerFood.foodAmount = 100;
+          attributePerFood.attributeAmount = this.calculatePerHundredGrams(attributePerFood.foodAmount!, attributePerFood.attributeAmount!);
+        }
+      }
+    });
+    return result;
+  }
+
+  calculatePerHundredGrams(foodAmount: number, attributeAmount: number): number{
+    let factor = foodAmount / 100;
+    return attributeAmount * factor;
+  }
+
+  filterResult(event: any) {
+    let search: string = event.target.value;
+    if (search) {
+      this.filteredFoods = this.foods.filter(
+        (food) => food.name?.toLowerCase().indexOf(search.toLowerCase()) !== -1
+      );
+      this.dataSource = this.filteredFoods;
+    } else {
+      this.dataSource = this.foods;
+    }
+  };
 }

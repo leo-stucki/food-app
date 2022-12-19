@@ -5,3 +5,8 @@
 ::ng-deep .mdc-data-table__header-cell{
   background-color: #f6f6f6 !important;
 }
+
+.search-bar{
+  display: flex;
+  justify-content: flex-end;
+}

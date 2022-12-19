@@ -5,7 +5,7 @@ import {Observable, of} from "rxjs";
 @Injectable({providedIn:'root'})
 export class PatientService {
 
-  //MOCK-DATA
+  //MOCK-DATA patients
   patients: Patient[] = [
     {
       id: 1,

@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AttributeService} from "./attribute.service";
 import {Statistic} from "../model/statistic";
 import {PatientService} from "./patient.service";
@@ -9,7 +9,7 @@ import {Observable, of} from "rxjs";
 })
 export class StatisticService {
 
-  //MOCK-DATA
+  //MOCK-DATA statistics.id
   statistics: Statistic[] = [
     {
       id: 1,
@@ -32,6 +32,7 @@ export class StatisticService {
   ]
 
   constructor(private patientService: PatientService, private attributeService: AttributeService) {
+    //MOCK-DATA statistics.patient
     this.patientService.getPatientById(1).subscribe((res) => {
       this.statistics[0].patient = res;
       this.statistics[1].patient = res;
@@ -45,6 +46,7 @@ export class StatisticService {
       this.statistics[3].patient = res;
     })
 
+    //MOCK-DATA statistics.attribute
     this.attributeService.getAttributeById(1).subscribe((res) => {
       this.statistics[0].attribute = res;
       this.statistics[4].attribute = res;
