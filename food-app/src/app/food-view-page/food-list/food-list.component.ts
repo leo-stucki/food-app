@@ -31,7 +31,6 @@ export class FoodListComponent implements OnInit{
     let result: AttributePerFood[] = [];
     this.attributePerFoodService.getAttributesPerFoodByFoodId(foodId).subscribe((res) => {
       result = res;
-      console.dir(result)
       for (let attributePerFood of result) {
         if (attributePerFood.foodAmount != 100) {
           attributePerFood.foodAmount = 100;

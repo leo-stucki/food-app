@@ -1,9 +1,6 @@
-<div class="search-bar">
-  <!-- search-bar einfügen -->
-</div>
 <div class="dish-list">
-  <div class="food-tile" *ngFor="let dish of dishes">
-    <h2>{{ dish.name }}</h2>
+  <div class="dish-tile" *ngFor="let dish of dishes">
+    <h2>{{ dish.name }} {{ dish.unit }}</h2>
   </div>
 </div>
 

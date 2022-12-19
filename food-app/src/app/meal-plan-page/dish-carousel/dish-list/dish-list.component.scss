@@ -1,0 +1,7 @@
+.dish-list {
+  border: solid 1px black;
+  padding: 10%;
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-dish-button{
+  margin: 20px;
+
+  .add-button {
+    background-color: #EB0000;
+  }
+}
