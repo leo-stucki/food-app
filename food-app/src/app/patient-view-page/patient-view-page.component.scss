@@ -1,0 +1,19 @@
+.page {
+  margin: 0 15% 0 15%;
+}
+
+.header {
+  h1 {
+    margin: 5% 0 5% 0;
+  }
+}
+
+.add-patient-button{
+  margin: 20px;
+  display: flex;
+  justify-content: flex-end;
+
+  .add-button {
+    background-color: #EB0000;
+  }
+}
