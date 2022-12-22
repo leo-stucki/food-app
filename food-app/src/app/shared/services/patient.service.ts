@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Patient} from "../model/patient";
 import {Observable, of} from "rxjs";
+import {MessageService} from "./message.service";
 
 @Injectable({providedIn:'root'})
 export class PatientService {
@@ -41,6 +42,8 @@ export class PatientService {
     }
   ];
 
+  constructor(private messageService: MessageService) {}
+
   //MOCK-ENDPOINTS (deliver mock data)
   getAllPatients(): Observable<Patient[]> {
     return of(this.patients);
@@ -70,5 +73,28 @@ export class PatientService {
         return of(patient);
       }
     } return of(new Patient());
+  }
+
+  createPatient(firstName: string, lastName: string, height: number, weight: number): Observable<Patient[]> {
+    let check = this.patients.length;
+    let newPatient = new Patient();
+
+    newPatient.id = this.patients.length + 1;
+    newPatient.firstName = firstName;
+    newPatient.lastName = lastName;
+    newPatient.height = height;
+    newPatient.weight = weight;
+
+    this.patients = [...this.patients, newPatient]
+
+    console.dir(this.patients)
+
+    if (check == this.patients.length - 1){
+      this.messageService.createSuccessMessage('Patient wurde erstellt');
+    } else {
+      this.messageService.createErrorMessage('Beim erstellen des Patienten ist ein Fehler aufgetreten.')
+    }
+
+    return of(this.patients);
   }
 }

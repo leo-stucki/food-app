@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Patient} from "../../shared/model/patient";
 import {PatientService} from "../../shared/services/patient.service";
 
@@ -7,11 +7,11 @@ import {PatientService} from "../../shared/services/patient.service";
   templateUrl: './patient-view-list.component.html',
   styleUrls: ['./patient-view-list.component.scss']
 })
-export class PatientViewListComponent implements OnInit {
+export class PatientViewListComponent implements OnInit, OnChanges {
+
+  @Input() patients: Patient[] = [];
 
   columnsToDisplay = ['number', 'name', 'height', 'weight'];
-
-  patients: Patient[] = [];
 
   filteredPatients: Patient[] = [];
 
@@ -21,10 +21,7 @@ export class PatientViewListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.patientService.getAllPatients().subscribe((res) => {
-      this.patients = res;
-      this.dataSource = this.patients;
-    })
+    this.dataSource = this.patients;
   }
 
   filterResult(event: any) {
@@ -37,5 +34,10 @@ export class PatientViewListComponent implements OnInit {
     } else {
       this.dataSource = this.patients;
     }
+  }
+
+  ngOnChanges(): void {
+    this.dataSource = this.patients;
+    console.log('dinimer');
   }
 }

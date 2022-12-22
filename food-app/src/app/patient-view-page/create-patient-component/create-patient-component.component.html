@@ -1,0 +1,25 @@
+<div class="header">
+  <h1 mat-dialog-title>Erstelle einen Patienten</h1>
+</div>
+<div class="content" mat-dialog-content>
+  <p>Gib einen Vornamen An:</p>
+  <mat-form-field appearance="fill">
+    <input matInput [(ngModel)]="newPatient.firstName">
+  </mat-form-field>
+  <p>Gib einen Namen An:</p>
+  <mat-form-field appearance="fill">
+    <input matInput [(ngModel)]="newPatient.lastName">
+  </mat-form-field>
+  <p>Gib eine Grösse An:</p>
+  <mat-form-field appearance="fill">
+    <input matInput [(ngModel)]="newPatient.height">
+  </mat-form-field>
+  <p>Gib ein Gewicht An:</p>
+  <mat-form-field appearance="fill">
+    <input matInput [(ngModel)]="newPatient.weight">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abbrechen</button>
+  <button mat-button [mat-dialog-close]="newPatient">Erstellen</button>
+</div>

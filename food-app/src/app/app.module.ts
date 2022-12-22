@@ -16,13 +16,16 @@ import { MealPlanPageComponent } from './meal-plan-page/meal-plan-page.component
 import { DishCarouselComponent } from './meal-plan-page/dish-carousel/dish-carousel.component';
 import { MealPlanComponent } from './meal-plan-page/meal-plan/meal-plan.component';
 import { DishListComponent } from './meal-plan-page/dish-carousel/dish-list/dish-list.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from "@angular/material/icon";
 import {MatTableModule} from "@angular/material/table";
 import {MatListModule} from "@angular/material/list";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import { CreatePatientComponentComponent } from './patient-view-page/create-patient-component/create-patient-component.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 
@@ -41,7 +44,8 @@ import {MatButtonModule} from "@angular/material/button";
     MealPlanPageComponent,
     DishCarouselComponent,
     MealPlanComponent,
-    DishListComponent
+    DishListComponent,
+    CreatePatientComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +57,14 @@ import {MatButtonModule} from "@angular/material/button";
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    FormsModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    MatSnackBarModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

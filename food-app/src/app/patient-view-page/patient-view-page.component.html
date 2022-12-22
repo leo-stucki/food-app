@@ -3,8 +3,8 @@
     <h1>Patientenübersicht</h1>
   </div>
   <div class="content">
-    <app-patient-view-list></app-patient-view-list>
-    <div class="add-patient-button">
+    <app-patient-view-list [patients]="patients"></app-patient-view-list>
+    <div class="add-patient-button" (click)="openDialog()">
       <button mat-fab class="add-button">
         <mat-icon>add</mat-icon>
       </button>
