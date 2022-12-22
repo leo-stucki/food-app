@@ -5,7 +5,7 @@
   <div class="content">
     <div class="meal-tile" *ngFor="let meal of meals">
       <h2 *ngFor="let dish of getDishById(meal.dishId!)" >{{ dish.name }}</h2>
+      <h2>{{ meal.time }}</h2>
     </div>
   </div>
-
 </div>

@@ -25,7 +25,7 @@ export class MealPlanComponent implements OnInit{
       this.currentPatient = res;
       this.mealService.getMealsPerPatientId(this.currentPatient.id!).subscribe((res) => {
         this.meals = res;
-          console.log(this.mealService);
+        console.log(this.meals)
         }
       );
     });
@@ -35,7 +35,6 @@ export class MealPlanComponent implements OnInit{
     let result: Dish[] = [];
     this.dishService.getDishById(dishId).subscribe((res) => {
       result = res;
-      console.log(result);
     });
     return result;
   }

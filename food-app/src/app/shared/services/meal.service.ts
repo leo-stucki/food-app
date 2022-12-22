@@ -57,11 +57,11 @@ export class MealService {
   }
 
   //MOCK-ENDPOINTS (deliver mock data)
-  getMealsPerPatientId(mealId: number): Observable<Meal[]> {
+  getMealsPerPatientId(patientId: number): Observable<Meal[]> {
     let meals: Meal[] = [];
     for (let mealsPerPatients of this.mealPerPatients) {
-      if (mealsPerPatients.meal?.id == mealId){
-        meals.push(mealsPerPatients.meal);
+      if (mealsPerPatients.patient?.id == patientId){
+        meals.push(mealsPerPatients.meal!);
       }
     } return of(meals);
   }

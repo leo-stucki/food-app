@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Food} from "../../shared/model/food";
 import {FoodService} from "../../shared/services/food.service";
-import {AttributePerFoodService} from "../../shared/services/attribute-per-food.service";
-import {AttributeService} from "../../shared/services/attribute.service";
 import {AttributePerFood} from "../../shared/model/attributePerFood";
 
 @Component({
@@ -18,7 +16,7 @@ export class FoodListComponent implements OnInit{
 
   dataSource: Food[] = [];
 
-  constructor(private foodService: FoodService, private attributePerFoodService: AttributePerFoodService) {}
+  constructor(private foodService: FoodService) {}
 
   ngOnInit() {
     this.foodService.getAllFoods().subscribe((res) => {
@@ -29,7 +27,7 @@ export class FoodListComponent implements OnInit{
 
   getAttributesByFoodId(foodId: number): AttributePerFood[] {
     let result: AttributePerFood[] = [];
-    this.attributePerFoodService.getAttributesPerFoodByFoodId(foodId).subscribe((res) => {
+    this.foodService.getAttributesPerFoodByFoodId(foodId).subscribe((res) => {
       result = res;
       for (let attributePerFood of result) {
         if (attributePerFood.foodAmount != 100) {

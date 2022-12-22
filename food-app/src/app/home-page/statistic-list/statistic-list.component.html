@@ -1,6 +1,7 @@
 <div class="content" *ngIf="statistics.length >= 1">
   <div class="statistic-tile" *ngFor="let statistic of statistics">
     <h1>{{ statistic.attribute?.name }}</h1>
+
   </div>
 </div>
 <div class="content" *ngIf="statistics.length == 0">
