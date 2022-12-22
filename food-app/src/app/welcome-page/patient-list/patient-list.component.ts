@@ -41,6 +41,5 @@ export class PatientListComponent implements OnInit{
 
   selectPatient(patient: Patient) {
     this.newPatientEvent.emit(patient);
-
   }
 }

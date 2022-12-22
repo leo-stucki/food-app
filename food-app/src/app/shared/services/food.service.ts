@@ -4,6 +4,8 @@ import {Observable, of} from "rxjs";
 import {Patient} from "../model/patient";
 import {AttributePerFood} from "../model/attributePerFood";
 import {AttributeService} from "./attribute.service";
+import {Attribute} from "../model/attribute";
+import {MessageService} from "./message.service";
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +64,7 @@ export class FoodService {
     },
   ];
 
-  constructor( private attributeService: AttributeService) {
+  constructor(private attributeService: AttributeService, private messageService: MessageService) {
     //MOCK-DATA atteibutes.food
     this.attributePerFoods[0].food = this.foods[0];
     this.attributePerFoods[1].food = this.foods[0];
@@ -107,5 +109,36 @@ export class FoodService {
         result.push(attributePerFood);
       }
     } return of(result);
+  }
+
+  createFood(name: string, unit: string): Observable<Food> {
+    let check = this.foods.length;
+    let newFood = new Food();
+
+    newFood.id = this.foods.length + 1;
+    newFood.name = name;
+    newFood.unit = unit;
+
+    this.foods = [...this.foods, newFood]
+
+    console.dir(this.foods)
+
+    if (check == this.foods.length - 1){
+      this.messageService.createSuccessMessage('Lebensmittel wurde erstellt');
+    } else {
+      this.messageService.createErrorMessage('Beim erstellen des Lebensmittels ist ein Fehler aufgetreten.')
+    }
+
+    return of(this.foods[check]);
+  }
+
+  createAttributePerFood(newAttributePerFood: AttributePerFood): Observable<Food[]> {
+    let check = this.attributePerFoods.length;
+
+    this.attributePerFoods = [...this.attributePerFoods, newAttributePerFood]
+
+    console.dir(this.attributePerFoods)
+
+    return of(this.foods);
   }
 }

@@ -1,0 +1,33 @@
+<div class="header">
+  <h1 mat-dialog-title>Erstelle ein Lebensmittel</h1>
+</div>
+<div class="content" mat-dialog-content>
+  <p>Gib einen Namen an:</p>
+  <mat-form-field appearance="fill">
+    <input matInput [(ngModel)]="newFood.name">
+  </mat-form-field>
+  <p>Gib eine Einheit an:</p>
+  <mat-form-field appearance="fill">
+    <input matInput [(ngModel)]="newFood.unit">
+  </mat-form-field>
+  <p>Gib gib die Menge an:</p>
+  <mat-form-field appearance="fill">
+    <input matInput [(ngModel)]="newAttributePerFood.foodAmount">
+  </mat-form-field>
+  <div class="attribute-list">
+    <p>Attribute:</p>
+    <p *ngIf="!foodCreated">Noch keine Attribute vorhanden</p>
+    <div *ngIf="foodCreated" class="attribute-list">
+      <p *ngFor="let attribute of attributes">{{ attribute.name }}</p>
+    </div>
+  </div>
+  <div class="add-attribute-button" (click)="openDialog()">
+    <button mat-fab class="add-button">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abbrechen</button>
+  <button mat-button [mat-dialog-close]="newAttributePerFood">Erstellen</button>
+</div>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Food} from "../../shared/model/food";
 import {FoodService} from "../../shared/services/food.service";
 import {AttributePerFood} from "../../shared/model/attributePerFood";
@@ -8,9 +8,9 @@ import {AttributePerFood} from "../../shared/model/attributePerFood";
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.scss']
 })
-export class FoodListComponent implements OnInit{
+export class FoodListComponent implements OnInit, OnChanges{
 
-  foods: Food[] = [];
+  @Input() foods: Food[] = [];
 
   filteredFoods: Food[] = [];
 
@@ -19,10 +19,7 @@ export class FoodListComponent implements OnInit{
   constructor(private foodService: FoodService) {}
 
   ngOnInit() {
-    this.foodService.getAllFoods().subscribe((res) => {
-      this.foods = res;
-      this.dataSource = this.foods;
-    })
+    this.dataSource = this.foods;
   };
 
   getAttributesByFoodId(foodId: number): AttributePerFood[] {
@@ -55,4 +52,8 @@ export class FoodListComponent implements OnInit{
       this.dataSource = this.foods;
     }
   };
+
+  ngOnChanges() {
+    this.dataSource = this.foods;
+  }
 }

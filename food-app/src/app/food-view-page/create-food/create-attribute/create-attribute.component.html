@@ -1,0 +1,25 @@
+<div class="header">
+  <h1 mat-dialog-title>Attribut auswählen</h1>
+</div>
+<div class="content" mat-dialog-content>
+  <div class="attribute-list-element" *ngFor="let attribute of attributes" (click)="chooseAttribute(attribute)">
+    <p>{{ attribute.name }}</p>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="newAttributePerFood.attributeAmount">
+      <p>{{ attribute.unit }}</p>
+    </mat-form-field>
+  </div>
+  <div class="attribute-list-element" cdkMonitorSubtreeFocus
+                                      (cdkFocusChange)="createNewAttribute()">
+    <mat-form-field>
+      <p>Gib einen Namen an</p>
+      <input matInput [(ngModel)]="newAttribute.name">
+      <p>Gib eine Einheit an</p>
+      <input matInput [(ngModel)]="newAttribute.unit">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abbrechen</button>
+  <button mat-button [mat-dialog-close]="newAttributePerFood">Erstellen</button>
+</div>

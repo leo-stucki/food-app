@@ -38,6 +38,5 @@ export class PatientViewListComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.dataSource = this.patients;
-    console.log('dinimer');
   }
 }

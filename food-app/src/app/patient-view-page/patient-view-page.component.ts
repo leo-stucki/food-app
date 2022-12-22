@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {CreatePatientComponentComponent} from "./create-patient-component/create-patient-component.component";
+import {CreatePatientComponent} from "./create-patient/create-patient.component";
 import {PatientService} from "../shared/services/patient.service";
 import {Patient} from "../shared/model/patient";
 
@@ -23,7 +23,7 @@ export class PatientViewPageComponent implements OnInit{
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(CreatePatientComponentComponent, {
+    const dialogRef = this.dialog.open(CreatePatientComponent, {
       height: '50%',
       width: '50%',
     });

@@ -23,9 +23,12 @@ import {MatListModule} from "@angular/material/list";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import { CreatePatientComponentComponent } from './patient-view-page/create-patient-component/create-patient-component.component';
+import { CreatePatientComponent } from './patient-view-page/create-patient/create-patient.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { CreateFoodComponent } from './food-view-page/create-food/create-food.component';
+import { CreateAttributeComponent } from './food-view-page/create-food/create-attribute/create-attribute.component';
+import {A11yModule} from "@angular/cdk/a11y";
 
 
 
@@ -45,7 +48,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     DishCarouselComponent,
     MealPlanComponent,
     DishListComponent,
-    CreatePatientComponentComponent
+    CreatePatientComponent,
+    CreateFoodComponent,
+    CreateAttributeComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatButtonModule,
     MatDialogModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    A11yModule
   ],
   providers: [
     MatSnackBarModule

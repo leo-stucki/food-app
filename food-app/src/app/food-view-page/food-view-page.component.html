@@ -3,8 +3,8 @@
     <h1>Lebensmittelübersicht</h1>
   </div>
   <div class="content">
-    <app-food-list></app-food-list>
-    <div class="add-food-button">
+    <app-food-list [foods]="foods"></app-food-list>
+    <div class="add-food-button" (click)="openDialog()">
       <button mat-fab class="add-button">
         <mat-icon>add</mat-icon>
       </button>
