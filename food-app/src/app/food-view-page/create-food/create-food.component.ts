@@ -13,7 +13,7 @@ import {CreateAttributeComponent} from "./create-attribute/create-attribute.comp
 })
 export class CreateFoodComponent {
 
-  foodCreated: boolean = false;
+  foodFinished: boolean = false;
 
   newAttributePerFood = new AttributePerFood();
 
@@ -31,17 +31,19 @@ export class CreateFoodComponent {
     });
 
     dialogRef.afterClosed().subscribe((res) => {
-      this.newAttributePerFood.attribute = res.newAttributePerFood.attribute;
-      this.newAttributePerFood.attributeAmount = res.newAttributePerFood.attributeAmount;
-      this.attributes.push(res.newAttributePerFood.attribute);
+      this.newAttributePerFood.attribute = res.attribute;
+      this.newAttributePerFood.attributeAmount = res.attributeAmount;
+      this.attributes.push(this.newAttributePerFood.attribute!);
     });
   }
 
   createFood() {
-    this.foodService.createFood(this.newFood.name!, this.newFood.unit!).subscribe((res) => {
-      this.newAttributePerFood.food = res;
-    })
-    this.foodCreated = true;
+    if (!this.foodFinished) {
+      this.foodService.createFood(this.newFood.name!, this.newFood.unit!).subscribe((res) => {
+        this.newAttributePerFood.food = res;
+      })
+      this.foodFinished = true;
+    }
   }
 
   onNoClick(): void {

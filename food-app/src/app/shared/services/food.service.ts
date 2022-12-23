@@ -123,12 +123,6 @@ export class FoodService {
 
     console.dir(this.foods)
 
-    if (check == this.foods.length - 1){
-      this.messageService.createSuccessMessage('Lebensmittel wurde erstellt');
-    } else {
-      this.messageService.createErrorMessage('Beim erstellen des Lebensmittels ist ein Fehler aufgetreten.')
-    }
-
     return of(this.foods[check]);
   }
 
