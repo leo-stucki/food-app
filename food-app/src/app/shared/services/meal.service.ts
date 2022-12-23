@@ -3,7 +3,7 @@ import {Meal} from "../model/meal";
 import {Observable, of} from "rxjs";
 import {MealPerPatient} from "../model/mealPerPatient";
 import {PatientService} from "./patient.service";
-import {DishService} from "./dish.service";
+import {FoodService} from "./dish.service";
 import {Dish} from "../model/dish";
 
 @Injectable({
@@ -41,7 +41,7 @@ export class MealService {
   ];
 
 
-  constructor(private patientService: PatientService, private dishService: DishService) {
+  constructor(private patientService: PatientService) {
     //MOCK-DATA mealPerPatients.patient
     this.patientService.getPatientById(1).subscribe((res) => {
       this.mealPerPatients[0].patient = res;

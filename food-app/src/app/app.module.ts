@@ -50,7 +50,7 @@ import {A11yModule} from "@angular/cdk/a11y";
     DishListComponent,
     CreatePatientComponent,
     CreateFoodComponent,
-    CreateAttributeComponent
+    CreateAttributeComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,6 @@ export class CreateAttributeComponent implements OnInit{
 
   chooseAttribute(attribute: Attribute) {
     this.newAttributePerFood.attribute = attribute;
-    console.dir(this.newAttributePerFood)
   }
 
   createNewAttribute() {

@@ -40,7 +40,7 @@ export class CreateFoodComponent {
   createFood() {
     if (!this.foodFinished) {
       this.foodService.createFood(this.newFood.name!, this.newFood.unit!).subscribe((res) => {
-        this.newAttributePerFood.food = res;
+        this.newAttributePerFood.food = res[res.length-1];
       })
       this.foodFinished = true;
     }

@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Food} from "../model/food";
 import {Observable, of} from "rxjs";
-import {Patient} from "../model/patient";
 import {AttributePerFood} from "../model/attributePerFood";
 import {AttributeService} from "./attribute.service";
-import {Attribute} from "../model/attribute";
-import {MessageService} from "./message.service";
 
 @Injectable({
   providedIn: 'root'
@@ -64,8 +61,8 @@ export class FoodService {
     },
   ];
 
-  constructor(private attributeService: AttributeService, private messageService: MessageService) {
-    //MOCK-DATA atteibutes.food
+  constructor(private attributeService: AttributeService) {
+    //MOCK-DATA attributes.food
     this.attributePerFoods[0].food = this.foods[0];
     this.attributePerFoods[1].food = this.foods[0];
     this.attributePerFoods[2].food = this.foods[1];
@@ -94,7 +91,7 @@ export class FoodService {
     return of(this.foods);
   }
 
-  getFoodById(id: number): Observable<Patient> {
+  getFoodById(id: number): Observable<Food> {
     for (let food of this.foods) {
       if (food.id == id) {
         return of(food);
@@ -111,7 +108,7 @@ export class FoodService {
     } return of(result);
   }
 
-  createFood(name: string, unit: string): Observable<Food> {
+  createFood(name: string, unit: string): Observable<Food[]> {
     let check = this.foods.length;
     let newFood = new Food();
 
@@ -123,16 +120,12 @@ export class FoodService {
 
     console.dir(this.foods)
 
-    return of(this.foods[check]);
+    return of(this.foods)
   }
 
-  createAttributePerFood(newAttributePerFood: AttributePerFood): Observable<Food[]> {
-    let check = this.attributePerFoods.length;
-
+  createAttributePerFood(newAttributePerFood: AttributePerFood): Observable<AttributePerFood[]> {
     this.attributePerFoods = [...this.attributePerFoods, newAttributePerFood]
 
-    console.dir(this.attributePerFoods)
-
-    return of(this.foods);
+    return of(this.attributePerFoods);
   }
 }

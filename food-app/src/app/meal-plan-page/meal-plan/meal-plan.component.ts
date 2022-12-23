@@ -4,7 +4,7 @@ import {MealService} from "../../shared/services/meal.service";
 import {Patient} from "../../shared/model/patient";
 import {PatientService} from "../../shared/services/patient.service";
 import {Dish} from "../../shared/model/dish";
-import {DishService} from "../../shared/services/dish.service";
+import {FoodService} from "../../shared/services/dish.service";
 import {compileResults} from "@angular/compiler-cli/src/ngtsc/annotations/common";
 
 @Component({
@@ -16,9 +16,9 @@ export class MealPlanComponent implements OnInit{
 
   currentPatient: Patient = new Patient();
 
-  meals: Meal [] = [];
+  meals: Meal[] = [];
 
-  constructor(private patientService: PatientService, private mealService: MealService, private dishService: DishService) {}
+  constructor(private patientService: PatientService, private mealService: MealService, private dishService: FoodService) {}
 
   ngOnInit() {
     this.patientService.getCurrentPatient().subscribe((res) => {
@@ -31,11 +31,10 @@ export class MealPlanComponent implements OnInit{
     });
   }
 
-  getDishById(dishId: number): Dish[]{
-    let result: Dish[] = [];
+  getDishById(dishId: number): Dish{
     this.dishService.getDishById(dishId).subscribe((res) => {
-      result = res;
-    });
-    return result;
+      return res;
+    })
+    return new Dish();
   }
 }

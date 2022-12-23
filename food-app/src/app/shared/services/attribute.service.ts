@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Attribute} from "../model/attribute";
 import {Observable, of} from "rxjs";
-import {Food} from "../model/food";
-import {AttributePerFood} from "../model/attributePerFood";
 import {MessageService} from "./message.service";
-import {FoodService} from "./food.service";
 
 @Injectable({
   providedIn: 'root'
@@ -59,8 +56,6 @@ export class AttributeService {
     newAttribute.unit = unit;
 
     this.attributes = [...this.attributes, newAttribute]
-
-    console.dir(this.attributes)
 
     if (check == this.attributes.length - 1){
       this.messageService.createSuccessMessage('Attribut wurde erstellt');

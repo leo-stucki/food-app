@@ -5,7 +5,7 @@ import {Observable, of} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class DishService {
+export class FoodService {
 
   //MOCK-DATA  dishes
   dishes: Dish[] = [
@@ -36,12 +36,11 @@ export class DishService {
     return of(this.dishes);
   }
 
-  getDishById(dishId: number): Observable<Dish[]> {
-    let result: Dish[] = [];
+  getDishById(dishId: number): Observable<Dish> {
     for (let dish of this.dishes) {
       if (dish.id == dishId) {
-        result.push(dish);
+        return of(dish);
       }
-    } return of(result);
+    } return of(new Dish());
   }
 }

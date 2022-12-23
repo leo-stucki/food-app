@@ -29,7 +29,13 @@ export class PatientViewPageComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe((res) => {
-      this.patientService.createPatient(res.firstName, res.lastName, res.height, res.weight).subscribe((res) => {
+      const newPatient: Patient = {
+          firstName: res.firstName,
+          lastName: res.lastName,
+          height: res.height,
+          weight: res.weight
+        };
+      this.patientService.createPatient(newPatient).subscribe((res) => {
         this.patients = res;
       });
     })

@@ -17,9 +17,7 @@ export class FoodViewPageComponent {
   }
 
   ngOnInit() {
-    this.foodService.getAllFoods().subscribe((res) => {
-      this.foods = res;
-    })
+    this.updateFoods();
   }
 
   openDialog(): void {
@@ -29,9 +27,15 @@ export class FoodViewPageComponent {
     });
 
     dialogRef.afterClosed().subscribe((res) => {
-      this.foodService.createAttributePerFood(res).subscribe((res) => {
-        this.foods = res;
+      this.foodService.createAttributePerFood(res).subscribe(() => {
+        this.updateFoods();
       })
     });
+  }
+
+  updateFoods() {
+    this.foodService.getAllFoods().subscribe((res) => {
+      this.foods = res;
+    })
   }
 }

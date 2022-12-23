@@ -14,7 +14,7 @@ export class PatientService {
       lastName: 'Tschoggo',
       weight: 100,
       height: 1.80,
-      current: false
+      current: true
     },
     {
       id: 2,
@@ -75,19 +75,12 @@ export class PatientService {
     } return of(new Patient());
   }
 
-  createPatient(firstName: string, lastName: string, height: number, weight: number): Observable<Patient[]> {
+  createPatient(newPatient: Patient): Observable<Patient[]> {
     let check = this.patients.length;
-    let newPatient = new Patient();
 
     newPatient.id = this.patients.length + 1;
-    newPatient.firstName = firstName;
-    newPatient.lastName = lastName;
-    newPatient.height = height;
-    newPatient.weight = weight;
 
     this.patients = [...this.patients, newPatient]
-
-    console.dir(this.patients)
 
     if (check == this.patients.length - 1){
       this.messageService.createSuccessMessage('Patient wurde erstellt');
